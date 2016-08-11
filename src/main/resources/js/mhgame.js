@@ -44,7 +44,7 @@ function requestGameStart(){
 
 function requestGameEnd(game_id,point){
     var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=over&sign=";
-    var _loc3_ = createUid();
+    var _loc3_ = createUID2();
     var _loc2_ = "guid=" + _loc3_ + "&id=" + game_id + "&point=" + point;
     var _loc4_ = $.md5("over" + _loc2_ + KEY);
     console.log("---------游戏结束----------");
