@@ -1,27 +1,27 @@
 var KEY =
     "Wcq5QMdvBSCsHPDsAjIwNMGloDseMv";
 function start(point){
-    //1.Ìõ¼þÅÐ¶Ï
+    //1.æ¡ä»¶åˆ¤æ–­
     if(!isNaN(point)&&point>0&&point<=3000){
-        console.log("ÄúÊäÈëµÄ·ÖÊýÎª"+point);
+        console.log("æ‚¨è¾“å…¥çš„åˆ†æ•°ä¸º"+point);
     }else{
-        console.log("ÊäÈë¸ñÊ½ÓÐÎó");
+        console.log("è¾“å…¥æ ¼å¼æœ‰è¯¯");
         return;
     }
-    //1.ÇëÇó¿ªÊ¼ÓÎÏ·Á÷³Ì
+    //1.è¯·æ±‚å¼€å§‹æ¸¸æˆæµç¨‹
     var game_id = requestGameStart();
 //       requestGameEnd(game_id,point);
 }
 
 function requestGameStart(){
     var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=start&sign=";
-    var _loc2_ = createUid();
+    var _loc2_ = createUID2();
     var _loc1_ = "guid=" + _loc2_;
     var  _loc3_ = $.md5("start" + _loc1_ + KEY);
     var url = urlStart + _loc3_;
     console.log(_loc3_);
-    console.log("URLÎª£º" + urlStart + _loc3_);
-    console.log("POST²ÎÊýÎª£º"+_loc1_);
+    console.log("URLä¸ºï¼š" + urlStart + _loc3_);
+    console.log("POSTå‚æ•°ä¸ºï¼š"+_loc1_);
     var game_id;
     $.ajax({
         url:url,
@@ -33,7 +33,7 @@ function requestGameStart(){
         success:function(result){
             console.log(result);
 //                var str = result.toString();
-//                //½âÎö·µ»Ø±¨ÎÄ
+//                //è§£æžè¿”å›žæŠ¥æ–‡
 //                var res = str.spilt("\\|")
 //                console.log(res[0]);
 //                console.log(res[1]);
@@ -45,15 +45,15 @@ function requestGameStart(){
 function requestGameEnd(game_id,point){
     var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=over&sign=";
     var _loc3_ = createUid();
-    var _loc2_ = "guid=" + _loc3_ + "&game_id=" + game_id + "&point=" + point;
+    var _loc2_ = "guid=" + _loc3_ + "&id=" + game_id + "&point=" + point;
     var _loc4_ = $.md5("over" + _loc2_ + KEY);
-    console.log("---------ÓÎÏ·½áÊø----------");
-    console.log("URLÎª£º" + urlStart + _loc4_);
-    console.log("POST²ÎÊýÎª£º" + _loc2_);
+    console.log("---------æ¸¸æˆç»“æŸ----------");
+    console.log("URLä¸ºï¼š" + urlStart + _loc4_);
+    console.log("POSTå‚æ•°ä¸ºï¼š" + _loc2_);
 }
 
 /**
- * ´´½¨UID
+ * åˆ›å»ºUID
  * @returns {string}
  */
 function createUid(){
@@ -89,3 +89,29 @@ function createUid(){
     }
     return _loc1_;
 }
+
+ function createUID2()
+{
+    var i;
+    var j;
+    var uid = "";
+    var ALPHA_CHARS = "0123456789abcdef";
+    for(i = 0; i < 8; i++)
+    {
+        uid = uid + ALPHA_CHARS.charAt(Math.round(Math.random() * 15));
+    }
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 4; j++)
+        {
+            uid = uid + ALPHA_CHARS.charAt(Math.round(Math.random() * 15));
+        }
+    }
+    var time = new Date().getTime();
+    uid = uid + ("0000000" + time.toString(16).toUpperCase()).substr(-8);
+    for(i = 0; i < 4; i++) {
+        uid = uid + ALPHA_CHARS.charAt(Math.round(Math.random() * 15));
+    }
+    return uid;
+}
+
