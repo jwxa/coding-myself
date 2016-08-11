@@ -80,7 +80,8 @@ function createUid(){
         _loc3_++;
     }
     var _loc5_ = new Date().getTime();
-    _loc1_ = _loc1_ + ("0000000" + _loc5_.toString()).substring( _loc5_.toString().length-8,8);
+    _loc1_ = _loc1_ + ("0000000" + _loc5_.toString(16)).substring( _loc5_.toString(16).length-8,8);
+    console.log("_loc1_:"+_loc1_);
     _loc3_ = 0;
     while(_loc3_ < 4)
     {
