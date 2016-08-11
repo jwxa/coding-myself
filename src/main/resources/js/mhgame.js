@@ -1,5 +1,5 @@
 var KEY =
-    "v" + "V" + "P" + "w" + "I" + "z" + "v" + "O" + "T" + "Q" + "Q" + "m" + "A" + "S" + "6" + "Z" + "y" + "G" + "A" + "3" + "H" + "z" + "g" + "Z" + "x" + "B" + "P" + "U" + "W" + "6";
+    "Wcq5QMdvBSCsHPDsAjIwNMGloDseMv";
 function start(point){
     //1.Ìõ¼þÅÐ¶Ï
     if(!isNaN(point)&&point>0&&point<=3000){
@@ -14,7 +14,7 @@ function start(point){
 }
 
 function requestGameStart(){
-    var urlStart = "http://evt.tiancity.com/mh/1611/home/index.php/flash?fn=start&sign=";
+    var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=start&sign=";
     var _loc2_ = createUid();
     var _loc1_ = "guid=" + _loc2_;
     var  _loc3_ = $.md5("start" + _loc1_ + KEY);
@@ -43,7 +43,7 @@ function requestGameStart(){
 
 
 function requestGameEnd(game_id,point){
-    var urlStart = "http://evt.tiancity.com/mh/1611/home/index.php/flash?fn=over&sign=";
+    var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=over&sign=";
     var _loc3_ = createUid();
     var _loc2_ = "guid=" + _loc3_ + "&game_id=" + game_id + "&point=" + point;
     var _loc4_ = $.md5("over" + _loc2_ + KEY);
