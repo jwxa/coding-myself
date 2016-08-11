@@ -15,7 +15,7 @@ function start(point){
 
 function requestGameStart(){
     var urlStart = "http://evt.tiancity.com/mh/51833/home/index.php/flash?fn=start&sign=";
-    var _loc2_ = "5f1d10c33a541f41ae797A5017D2e0b2";
+    var _loc2_ = "4d6a9172936115c75ca979F8A39D71c8";
     var _loc1_ = "guid=" + _loc2_;
     var  _loc3_ = $.md5("start" + _loc1_ + KEY);
     var url = urlStart + _loc3_;
@@ -27,8 +27,6 @@ function requestGameStart(){
         url:url,
         type:'post',
         beforeSend: function(request) {
-            request.setRequestHeader("Referer", "http://img1.tiancitycdn.com/mh/event/2016/08game/flash/Main.swf?1470929651175");
-            request.setRequestHeader("Host", "evt.tiancity.com");
             request.setRequestHeader("X-Requested-With", "ShockwaveFlash/18.0.0.209");
         },
         data:{
