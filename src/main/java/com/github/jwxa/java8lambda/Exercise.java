@@ -29,7 +29,7 @@ public class Exercise {
         });
         //2.有了lambda表达式，我们可以去掉冗余的匿名类：
         Collections.sort(people, (Person x,Person y)->x.getName().compareTo(y.getName()));
-        //3.尽管代码简洁了很多，但它的抽象程度依然很差：开发者仍然需要进行实际的比较操作（而且如果比较的值是原始类型那么情况会更糟），
+        //3.尽管代码简洁了很多，但它的抽象程度依然很差 ：开发者仍然需要进行实际的比较操作（而且如果比较的值是原始类型那么情况会更糟），
         // 所以我们要借助 Comparator 里的 comparing 方法实现比较操作：
         Collections.sort(people, comparing((Person p) -> p.getName()));
         //4.在类型推导和静态导入的帮助下，我们可以进一步简化上面的代码：
