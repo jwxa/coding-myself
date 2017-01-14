@@ -1,4 +1,4 @@
-package com.github.jwxa.java8lambda;
+package com.github.jwxa.java8lambda.article1;
 
 /**
  * 相对于内部类，lambda 表达式的语义就十分简单：它不会从超类（supertype）中继承任何变量名，也不会引入一个新的作用域。

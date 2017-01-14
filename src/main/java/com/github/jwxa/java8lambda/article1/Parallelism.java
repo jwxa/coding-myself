@@ -1,4 +1,4 @@
-package com.github.jwxa.java8lambda;
+package com.github.jwxa.java8lambda.article1;
 
 import java.util.ArrayList;
 import java.util.List;

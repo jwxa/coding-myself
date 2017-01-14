@@ -1,13 +1,10 @@
-package com.github.jwxa.java8lambda;
+package com.github.jwxa.java8lambda.article1;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import static com.github.jwxa.java8lambda.Example2.getAlbums;
 
 /**
  * 收集器<br>
@@ -18,7 +15,7 @@ public class CollectorsExample {
 
     public static void main(String[] args) {
 
-        List<Album> albums = getAlbums();
+        List<Album> albums = Example2.getAlbums();
         //举例来说，下面的代码以目录数字为键值创建一个倒排索引：
         Map<Integer,Album> albumsByCatalogNumber = albums.stream()
                 .collect(Collectors.toMap(e->e.getCatalogNumber(),e->e));

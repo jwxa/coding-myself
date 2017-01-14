@@ -1,4 +1,4 @@
-package com.github.jwxa.java8lambda;
+package com.github.jwxa.java8lambda.article1;
 
 /**
  * 在内部类中使用变量名（以及 this）非常容易出错。内部类中通过继承得到的成员（包括来自 Object 的方法）可能会把外部类的成员掩盖（shadow），此外未限定（unqualified）的 this 引用会指向内部类自己而非外部类。
