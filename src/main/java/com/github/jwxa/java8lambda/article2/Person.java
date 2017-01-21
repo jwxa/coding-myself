@@ -1,8 +1,9 @@
 package com.github.jwxa.java8lambda.article2;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -59,6 +60,40 @@ public class Person {
         people.stream().min(Person::ageDifference).ifPresent(youngest-> System.out.println("Youngest: "+ youngest));
         people.stream().max(Person::ageDifference).ifPresent(youngest-> System.out.println("Youngest: "+ youngest));
 
+        //2.多重比较 当需要通过名字来进行排序时，仍然可以使用sorted方法：
+        final Function<Person, String> byName = person -> person.getName();
+        final Function<Person,Integer> byAge  = person -> person.getAge();
+        people.stream().sorted(Comparator.comparing(byName).thenComparing(byAge)).collect(Collectors.toList());
+
+        //3.使用collect方法和Collectors类
+        List<Person> olderThan20 = people.stream().filter(p->p.getAge()>20)
+                //第一个参数表示的是如何创建目标容器
+                //第二个参数表示的是如何收集元素到容器中
+                //第三个参数表示的是如何合并多个目标容器
+                .collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+//        下面我们来分析一下上述代码的优点：
+//        代码意图更明显，更清晰简洁。
+//        更容易并行化，因为没有显式地对任何对象进行修改的操作
+        List<Person> olderThan20a = people.stream()
+                .filter(person -> person.getAge() > 20)
+                .collect(Collectors.toList());
+
+        //groupingBy的用法
+        Map<Integer,List<String>> groupingByAge = people.stream().collect(
+                Collectors
+                        .groupingBy(
+                                //第一个作为分类器，第二个作为对分类结果进行进一步操作的collector。
+                                Person::getAge,Collectors.mapping(Person::getName,Collectors.toList()
+                                ))
+        );
+        //再举一个更复杂一点的例子，我们需要根据名字的首字母进行分类，分类结果是名字以该首字母起头的年龄最大的人。
+        Comparator cmpByAge = Comparator.comparing(Person::getAge);
+        Map<Character, Optional<Person>> oldestPersonInEachAlphabet =
+                people.stream()
+                        .collect(Collectors.groupingBy(p->p.getName().charAt(0)
+                                ,Collectors.reducing(BinaryOperator.maxBy(cmpByAge))));
+        //以上的groupingBy方法的第二个参数执行了归约(Reduction)操作，而不是之前的映射(Mapping)操作。并且利用了BinaryOperator中定义的静态方法maxBy。
+        //在归约过程中，每次都会取参与的两个元素中较大的那个。最后就得到了整个集合中最大的那个元素。
 
     }
 }
