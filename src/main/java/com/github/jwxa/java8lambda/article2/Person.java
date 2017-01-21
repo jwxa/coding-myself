@@ -1,6 +1,5 @@
 package com.github.jwxa.java8lambda.article2;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
@@ -87,11 +86,13 @@ public class Person {
                                 ))
         );
         //再举一个更复杂一点的例子，我们需要根据名字的首字母进行分类，分类结果是名字以该首字母起头的年龄最大的人。
-        Comparator cmpByAge = Comparator.comparing(Person::getAge);
-        Map<Character, Optional<Person>> oldestPersonInEachAlphabet =
+        Comparator<Person> cmpByAge = Comparator.comparing(Person::getAge);
+        Map<Character,Optional<Person>> oldestPersonInEachAlphabet =
                 people.stream()
-                        .collect(Collectors.groupingBy(p->p.getName().charAt(0)
-                                ,Collectors.reducing(BinaryOperator.maxBy(cmpByAge))));
+                        .collect(Collectors.groupingBy(
+                                person->person.getName().charAt(0)
+                                ,Collectors.reducing(BinaryOperator.maxBy(cmpByAge))
+                        ));
         //以上的groupingBy方法的第二个参数执行了归约(Reduction)操作，而不是之前的映射(Mapping)操作。并且利用了BinaryOperator中定义的静态方法maxBy。
         //在归约过程中，每次都会取参与的两个元素中较大的那个。最后就得到了整个集合中最大的那个元素。
 
