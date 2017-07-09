@@ -1,3 +1,5 @@
+package com.github.jwxa.multithread;
+
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * </p>
  * User: Jwxa Date: 2017/2/19 ProjectName: coding-myself Version: 1.0
  */
-public class Test {
+public class SynchronizedWaitNotifyTest {
 
 
     public static void main(String[] args) throws InterruptedException {
