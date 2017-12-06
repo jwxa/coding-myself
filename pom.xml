@@ -40,6 +40,27 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.4.Final</version>
         </dependency>
+
+        <!--jedis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <!-- fluent-validator -->
+        <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
+        <!-- bestpay-commons-->
+        <dependency>
+            <groupId>com.bestpay</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0.5</version>
+        </dependency>
     </dependencies>
 
 </project>
