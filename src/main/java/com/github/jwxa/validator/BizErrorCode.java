@@ -1,7 +1,5 @@
 package com.github.jwxa.validator;
 
-import com.bestpay.exception.ErrorCode;
-
 /**
  * ภเร่ส๖
  * <p>

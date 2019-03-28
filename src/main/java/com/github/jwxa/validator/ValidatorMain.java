@@ -2,12 +2,8 @@ package com.github.jwxa.validator;
 
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
-import com.baidu.unbiz.fluentvalidator.Result;
-import com.baidu.unbiz.fluentvalidator.ValidationError;
-import com.bestpay.exception.ErrorCode;
 
 import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toComplex;
-import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
 
 /**
  * ¿‡√Ë ˆ

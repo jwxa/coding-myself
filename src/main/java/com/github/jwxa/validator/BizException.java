@@ -1,17 +1,15 @@
 package com.github.jwxa.validator;
 
-import com.bestpay.exception.BaseException;
-import com.bestpay.exception.ErrorCode;
-
 /**
- * å¼‚å¸¸
- *
+ * Òì³£
+ * <p>
  * User: wen Date: 2015/08/06 Project: ecurreccy-bestpaycard-trade Version: 1.0
  */
 public class BizException extends BaseException {
 
     /**
-     * 1ã€æä¾›å¼‚å¸¸ç å’Œå¼‚å¸¸æºæ„é€ å¼‚å¸¸
+     * 1¡¢Ìá¹©Òì³£ÂëºÍÒì³£Ô´¹¹ÔìÒì³£
+     *
      * @param errorCode
      * @param cause
      */
@@ -20,7 +18,8 @@ public class BizException extends BaseException {
     }
 
     /**
-     * 2ã€æä¾›å¼‚å¸¸ç å’Œå¼‚å¸¸æºå’Œé¢å¤–è¡¥å……ä¿¡æ¯æ„é€ å¼‚å¸¸
+     * 2¡¢Ìá¹©Òì³£ÂëºÍÒì³£Ô´ºÍ¶îÍâ²¹³äĞÅÏ¢¹¹ÔìÒì³£
+     *
      * @param errorCode
      * @param extraMsg
      * @param cause
@@ -30,7 +29,8 @@ public class BizException extends BaseException {
     }
 
     /**
-     * 3ã€æä¾›å¼‚å¸¸ç æ„é€ å¼‚å¸¸
+     * 3¡¢Ìá¹©Òì³£Âë¹¹ÔìÒì³£
+     *
      * @param errorCode
      */
     public BizException(ErrorCode errorCode) {
@@ -38,7 +38,8 @@ public class BizException extends BaseException {
     }
 
     /**
-     * æä¾›å¼‚å¸¸ç å’Œé¢å¤–è¡¥å……ä¿¡æ¯æ„é€ å¼‚å¸¸
+     * Ìá¹©Òì³£ÂëºÍ¶îÍâ²¹³äĞÅÏ¢¹¹ÔìÒì³£
+     *
      * @param errorCode
      * @param extraMsg
      */

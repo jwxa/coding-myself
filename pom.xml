@@ -54,13 +54,6 @@
             <artifactId>fluent-validator</artifactId>
             <version>1.0.9</version>
         </dependency>
-
-        <!-- bestpay-commons-->
-        <dependency>
-            <groupId>com.bestpay</groupId>
-            <artifactId>commons</artifactId>
-            <version>1.0.5</version>
-        </dependency>
     </dependencies>
 
 </project>
